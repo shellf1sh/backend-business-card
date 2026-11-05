@@ -1,0 +1,53 @@
+{
+  "name": "backend-business-card",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A GraphQL digital business card built with NestJS, Prisma and PostgreSQL.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/src/main.js",
+    "start:prepared": "sh scripts/start.sh",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "test": "tsc -p tsconfig.test.json && node --test .test-dist/test/selection.test.js",
+    "test:integration": "tsc -p tsconfig.test.json && node --test --test-concurrency=1 .test-dist/test/integration.test.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify": "npm run format:check && npm run build && npm run typecheck && npm test",
+    "demo:up": "node scripts/demo.mjs up",
+    "demo:down": "node scripts/demo.mjs down",
+    "demo:logs": "node scripts/demo.mjs logs",
+    "demo:test": "node scripts/demo.mjs test"
+  },
+  "dependencies": {
+    "@apollo/server": "5.5.1",
+    "@as-integrations/express5": "^1.1.2",
+    "@nestjs/apollo": "14.2.0",
+    "@nestjs/common": "12.3.3",
+    "@nestjs/core": "12.3.3",
+    "@nestjs/graphql": "14.2.0",
+    "@nestjs/platform-express": "12.3.3",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "dotenv": "^17.2.3",
+    "graphql": "16.15.0",
+    "graphql-parse-resolve-info": "^4.14.1",
+    "graphql-query-complexity": "^1.1.0",
+    "pg": "^8.16.3",
+    "prisma": "7.10.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "@types/pg": "^8.15.6",
+    "prettier": "^3.6.2",
+    "typescript": "~5.9.3"
+  }
+}

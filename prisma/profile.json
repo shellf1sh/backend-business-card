@@ -1,0 +1,95 @@
+{
+  "id": "primary",
+  "name": "Андрей Кобелев",
+  "description": "Разрабатываю backend на TypeScript/Node.js, интеграции и интерфейсы на React. В Brand Map работаю с каталогами, ценами и остатками, PostgreSQL, фоновыми обменами и сопровождением изменений до релиза.",
+  "links": [
+    { "key": "github", "label": "GitHub", "url": "https://github.com/shellf1sh" },
+    {
+      "key": "resume",
+      "label": "Резюме",
+      "url": "https://voronezh.hh.ru/resume/74520a7bff115ae3850039ed1f336e31676b63"
+    }
+  ],
+  "skills": [
+    "TypeScript",
+    "JavaScript",
+    "Node.js",
+    "React",
+    "PostgreSQL",
+    "Prisma",
+    "REST API",
+    "SQL",
+    "Docker",
+    "Git",
+    "Linux",
+    "Temporal",
+    "Redis",
+    "CI/CD",
+    "MS SQL Server",
+    "Postman",
+    "Bash",
+    "Интеграция информационных систем",
+    "Парсинг данных",
+    "Telegram API"
+  ],
+  "experience": [
+    {
+      "key": "brand-map",
+      "company": "Карта Брендов (Brand Map)",
+      "position": "Fullstack-разработчик",
+      "startDate": "2026-04-01",
+      "endDate": null,
+      "achievements": [
+        "Разрабатывал серверную логику на TypeScript и интерфейсы на React для управления каталогом, заказами и возвратами.",
+        "Реализовывал интеграции с 1С, МойСклад и 1С-Битрикс, импорт каталогов из Tilda и партнёрских источников Admitad.",
+        "Работал с миграциями PostgreSQL и Prisma, SQL-функциями и триггерами пересчёта доступности товаров.",
+        "Сопровождал фоновые обмены на Temporal: расписания, повторные попытки, контроль выполнения и диагностику ошибок.",
+        "Проверял изменения через тесты API, пользовательские сценарии, логи и данные; контролировал сборки и выкат через CI/CD."
+      ]
+    },
+    {
+      "key": "netmonet",
+      "company": "нетмонет",
+      "position": "Software Engineer (интеграции)",
+      "startDate": "2023-11-01",
+      "endDate": "2026-04-01",
+      "achievements": [
+        "Разрабатывал и сопровождал обмен данными сервиса безналичных чаевых с iiko и r_keeper.",
+        "Проверял REST API и JSON в Postman, диагностировал ошибки по логам и данным MS SQL Server.",
+        "Выполнял миграции данных в iiko, r_keeper и 1С.",
+        "Дорабатывал логику печатных форм и отчётов на C# с использованием Razor, автоматизировал операции Bash-скриптами."
+      ]
+    },
+    {
+      "key": "hamina",
+      "company": "Группа компаний Хамина",
+      "position": "Инженер ПО",
+      "startDate": "2019-11-01",
+      "endDate": "2022-09-01",
+      "achievements": [
+        "Оптимизировал запросы и индексы в MS SQL Server.",
+        "Строил OLAP-отчёты и кубы в R-Keeper и Game-Keeper, анализировал бизнес-логику и проектировал отчётность.",
+        "Автоматизировал повторяющиеся задачи Bash-скриптами и диагностировал сбои по логам.",
+        "Сопровождал R-Keeper, Game-Keeper и кассовое оборудование."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "key": "brand-map",
+      "name": "Brand Map",
+      "description": "Командный проект: платформа электронной коммерции. Мой вклад — серверные API и интерфейсы кабинета, интеграции каталогов, цен и остатков, фоновые обмены и работа с PostgreSQL. Исходный код закрыт.",
+      "url": "https://brandmap.ru",
+      "repositoryUrl": null,
+      "technologies": ["TypeScript", "Node.js", "React", "PostgreSQL", "Prisma", "Temporal"]
+    },
+    {
+      "key": "mini-crm",
+      "name": "Мини-CRM «Объекты и задачи»",
+      "description": "Тестовый проект: постановщик создаёт объекты и задачи, исполнители видят назначенную им работу. Реализованы роли, доступ к данным на уровне базы, история изменений, миграции и проверки пользовательских сценариев.",
+      "url": "https://shellf1sh.github.io/mini-crm-assignment/",
+      "repositoryUrl": "https://github.com/shellf1sh/mini-crm-assignment",
+      "technologies": ["TypeScript", "React", "Vite", "Supabase", "PostgreSQL"]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id          String             @id
+  name        String
+  description String
+  links       ProfessionalLink[]
+  skills      Skill[]
+  experience  Experience[]
+  projects    Project[]
+
+  @@map("profiles")
+}
+
+model ProfessionalLink {
+  id        String  @id
+  label     String
+  url       String
+  sortOrder Int
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, label])
+  @@index([profileId, sortOrder])
+  @@map("professional_links")
+}
+
+model Skill {
+  id        String  @id
+  name      String
+  sortOrder Int
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, name])
+  @@index([profileId, sortOrder])
+  @@map("skills")
+}
+
+model Experience {
+  id           String    @id
+  company      String
+  position     String
+  startDate    DateTime  @db.Date
+  endDate      DateTime? @db.Date
+  achievements String[]
+  sortOrder    Int
+  profileId    String
+  profile      Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, sortOrder])
+  @@map("experience")
+}
+
+model Project {
+  id            String   @id
+  name          String
+  description   String
+  url           String
+  repositoryUrl String?
+  technologies  String[]
+  sortOrder     Int
+  profileId     String
+  profile       Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, sortOrder])
+  @@map("projects")
+}
