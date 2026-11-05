@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: backend-business-card
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /health/ready
+    autoDeployTrigger: 'off'
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: backend-business-card-db
+          property: connectionString
+
+databases:
+  - name: backend-business-card-db
+    plan: free
+    region: frankfurt
+    postgresMajorVersion: '17'
+    databaseName: portfolio
+    user: portfolio
+    ipAllowList: []

@@ -10,8 +10,8 @@
   "scripts": {
     "build": "prisma generate && tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "start": "node dist/src/main.js",
-    "start:prepared": "sh scripts/start.sh",
+    "start": "sh scripts/start.sh node dist/src/main.js",
+    "start:prepared": "npm start",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "test": "tsc -p tsconfig.test.json && node --test .test-dist/test/selection.test.js",

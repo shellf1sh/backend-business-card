@@ -1,5 +1,7 @@
 # Backend business card
 
+[![Verify](https://github.com/shellf1sh/backend-business-card/actions/workflows/verify.yml/badge.svg)](https://github.com/shellf1sh/backend-business-card/actions/workflows/verify.yml)
+
 A small, read-only digital business card: profile, professional links, skills, work experience and projects. TypeScript, Node.js, NestJS, GraphQL, Apollo Sandbox, Prisma, PostgreSQL and Docker.
 
 ## Start from a clean checkout
@@ -127,14 +129,18 @@ Provide `DATABASE_URL` through your shell or a private environment file. `.env.e
 ```sh
 npm ci
 npm run build
-npm run db:migrate
-npm run db:seed
 npm start
 ```
 
-`npm run start:prepared` performs migration and seed before starting the compiled application. For development, rebuild after changes; keep migrations under version control. Integration tests deliberately require `ALLOW_DATABASE_TESTS=1` and must only target a disposable database.
+`npm start` applies migrations and seeds the database before starting the compiled application. `npm run start:prepared` is an alias. The separate `db:migrate` and `db:seed` commands are available for maintenance. For development, rebuild after changes; keep migrations under version control. Integration tests deliberately require `ALLOW_DATABASE_TESTS=1` and must only target a disposable database.
 
 ## Hosting
+
+The optional `render.yaml` Blueprint describes a Free Docker web service and a separate Free PostgreSQL 17 database in the same region. The connection URL is supplied by Render, and external database connections are blocked. Automatic redeploys are disabled. Publishing this file does not create hosting resources.
+
+[Review the Render deployment](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fshellf1sh%2Fbackend-business-card)
+
+Before creating resources, review [Render's Free instance limitations](https://render.com/docs/free): the web service sleeps after 15 minutes without traffic, and a Free database expires after 30 days. This option is for a temporary assignment demo. Review the actual plan and any billing settings in the deployment screen before proceeding.
 
 Deploy the Dockerfile's final `runtime` stage on a container host with a dedicated PostgreSQL database. Set `DATABASE_URL` to that database's connection URL and `PORT` if the host requires it; use the provider's prescribed TLS configuration. Configure the health check as `/health/ready`. The normal container entrypoint prepares the database automatically. Do not put database credentials in the repository or build arguments.
 
