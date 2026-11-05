@@ -4,6 +4,14 @@
 
 A small, read-only digital business card: profile, professional links, skills, work experience and projects. TypeScript, Node.js, NestJS, GraphQL, Apollo Sandbox, Prisma, PostgreSQL and Docker.
 
+## Live demo
+
+[Open Apollo Sandbox](https://backend-business-card.onrender.com/graphql)
+
+No account or token is required. The complete `BusinessCard` query is prefilled; run it to read the profile and related data. The original query from the assignment also works unchanged.
+
+The demo uses Free Render resources. A first request after inactivity can take about a minute while the service starts. See the hosting section for the temporary database's lifetime.
+
 ## Start from a clean checkout
 
 Requirements: Node.js 24+ with npm, Docker Engine and Docker Compose v2.
